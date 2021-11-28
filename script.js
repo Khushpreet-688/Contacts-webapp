@@ -170,3 +170,5 @@ function saving(e){
     renderView(new_contact)
     e.preventDefault()
 }
+
+document.addEventListener("DOMContentLoaded", trigger_contact)
