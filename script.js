@@ -127,6 +127,10 @@ function renderCreate(){
     main.className = 'main'
     document.body.appendChild(main)
     main.innerHTML += single_node
+    cancel_butn = document.querySelector('.cancel')
+    cancel_butn.addEventListener("click", trigger_contact)
+    save_butn = document.querySelector('.save')
+    save_butn.addEventListener("click", saving)
 
 }
 
@@ -147,4 +151,22 @@ create_contact.addEventListener('click', trigger_create)
 contact_card = document.querySelector(".contact")
   
 
-
+function saving(e){
+    c_name = document.querySelector('#contactname')
+    c_phone = document.querySelector('#contactphone')
+    c_address = document.querySelector('#contactaddress')
+    c_email = document.querySelector('#contactemail')
+    let new_contact =
+    {
+        name: `${c_name.value}`,
+        phone: `${c_phone.value}`,
+        address: `${c_address.value}`,
+        email: `${c_email.value}`
+        
+    }
+    console.log(new_contact)
+    contactList.push(new_contact)
+    cleanUpIndex()
+    renderView(new_contact)
+    e.preventDefault()
+}
